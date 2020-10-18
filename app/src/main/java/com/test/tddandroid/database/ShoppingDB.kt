@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Database(entities = [ShoppingItem::class], version = 1)
 abstract class ShoppingDB : RoomDatabase() {
     abstract fun shopppingDao(): ShoppingDao
 
     companion object {
+        private val dbName:String = "shopping_db"
         @Volatile
         private var db: ShoppingDB? = null
         fun getDataBase(context: Context): ShoppingDB =
@@ -17,7 +19,7 @@ abstract class ShoppingDB : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     ShoppingDB::class.java,
-                    "shopping_db"
+                    dbName
                 ).build().also {
                     db = it
                 }

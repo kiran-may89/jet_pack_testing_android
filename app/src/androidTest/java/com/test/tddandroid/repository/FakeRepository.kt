@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.test.tddandroid.database.ShoppingItem
 import com.test.tddandroid.net.responses.ImageResponse
 import com.test.tddandroid.net.responses.Resource
-import org.junit.Assert.*
 
 class FakeRepository : ShoppingRepository {
     private val shoppingItems = mutableListOf<ShoppingItem>()

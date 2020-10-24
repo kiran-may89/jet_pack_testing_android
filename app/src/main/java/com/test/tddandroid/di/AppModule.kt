@@ -3,7 +3,10 @@ package com.test.tddandroid.di
 import android.content.Context
 import com.google.gson.Gson
 import com.test.tddandroid.database.ShoppingDB
+import com.test.tddandroid.database.ShoppingDao
 import com.test.tddandroid.net.configs.PixelBayApi
+import com.test.tddandroid.repository.ShoppingRepository
+import com.test.tddandroid.repository.ShoppingRepositoryImpl
 import com.test.tddandroid.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -53,4 +56,9 @@ object AppModule {
             ).baseUrl(Constants.BASE_URL).build()
     }
 
+    @Singleton
+    @Provides
+    fun providesShoppingRepository(dao:ShoppingDao,api: PixelBayApi):ShoppingRepository{
+        return ShoppingRepositoryImpl(dao,api)
+    }
 }

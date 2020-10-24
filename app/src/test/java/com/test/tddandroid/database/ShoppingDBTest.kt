@@ -8,6 +8,7 @@ import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
 import com.android.example.github.util.getOrAwaitValue
 import com.test.tddandroid.BuildConfig
+import dagger.hilt.android.testing.HiltTestApplication
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.Matchers.everyItem
 import org.hamcrest.Matchers.greaterThan
@@ -45,6 +46,7 @@ class ShoppingDBTest {
     @Test
     fun `test non Null DB`() {
         assertNotNull(db)
+
 
     }
 

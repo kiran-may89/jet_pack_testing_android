@@ -1,7 +1,10 @@
 package com.test.tddandroid.di
 
 import android.content.Context
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
+import com.test.tddandroid.R
 import com.test.tddandroid.database.ShoppingDB
 import com.test.tddandroid.database.ShoppingDao
 import com.test.tddandroid.net.configs.PixelBayApi
@@ -61,4 +64,13 @@ object AppModule {
     fun providesShoppingRepository(dao:ShoppingDao,api: PixelBayApi):ShoppingRepository{
         return ShoppingRepositoryImpl(dao,api)
     }
+    @Singleton
+    @Provides
+    fun provideGlideInstance(
+        @ApplicationContext context: Context
+    ) = Glide.with(context).setDefaultRequestOptions(
+        RequestOptions()
+            .placeholder(R.drawable.ic_image)
+            .error(R.drawable.ic_image)
+    )
 }

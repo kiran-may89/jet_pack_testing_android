@@ -5,6 +5,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import com.android.example.github.util.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
+import com.test.tddandroid.launchFragmentInHiltContainer
+import com.test.tddandroid.views.fragments.ShoppingFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
@@ -37,6 +39,12 @@ class ShoppingDBTest {
         shoppingDao = db.shopppingDao()
     }
 
+    @Test
+    fun testLaunchFragmentInHiltContainer() {
+        launchFragmentInHiltContainer<ShoppingFragment> {
+
+        }
+    }
     @Test
     fun testNonNullDB() {
         assertThat(db).isNotNull()

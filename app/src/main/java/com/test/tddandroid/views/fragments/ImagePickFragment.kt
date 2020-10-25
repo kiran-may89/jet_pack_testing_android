@@ -19,7 +19,7 @@ class ImagePickFragment @Inject constructor(val imageAdapter: ImageAdapter):Frag
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         setupRecyclerView()
-       
+
     }
 
     private fun setupRecyclerView() {
